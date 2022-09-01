@@ -10,14 +10,14 @@ export class CartService {
   totalCost = 0;
   constructor(private localStorageService: LocalStorageService) {
     /* get the list stored in the browser's Local Store  */
-    this.cartList = this.localStorageService.getItem('cartList');
+    // this.cartList = this.localStorageService.getItem('cartList');
   }
 
   addToCart(produto: Product) {
     /* adds the new product in the cart list */
     this.cartList.push(produto);
     /* adds the new product in the local storage */
-    this.localStorageService.setItem('cartList', this.cartList);
+    // this.localStorageService.setItem('cartList', this.cartList);
     this.getTotalCost();
     return this.cartList;
   }
@@ -28,7 +28,7 @@ export class CartService {
       this.cartList.findIndex((e) => e.id == id),
       1
     );
-    this.localStorageService.setItem('cartList', this.cartList);
+    // this.localStorageService.setItem('cartList', this.cartList);
     this.getTotalCost();
   }
 

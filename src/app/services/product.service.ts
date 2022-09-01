@@ -37,15 +37,19 @@ export class ProductService {
     });
   }
 
-  /* load de products list from database */
+  /* load products list from database */
   getProducts(): Observable<Product[]> {
-    return this.httpClient.get<Product[]>(this.url );
+    return this.httpClient.get<Product[]>(this.url);
+  }
+
+  getProductsByCategory(id_category: string):Observable<Product[]>{
+    return this.httpClient.get<Product[]>(this.url+"category/"+id_category)
   }
 
   //load the products from database filtered by category.
   getProductsByType(type: string): Observable<Product[]> {
     // return this.httpClient.get<Product[]>("http://localhost:8000/productType/"+type);
-    return this.httpClient.get<Product[]>("http://localhost:8000/product/"+type);
+    return this.httpClient.get<Product[]>(this.url+"product/"+type);
   }
 
   //find an element by its id and returns it
