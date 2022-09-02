@@ -38,10 +38,11 @@ export class ProductComponent implements OnInit {
 
   goToPage(): void{
     console.log("navigate...")
-    this.router.navigate(['/product/add'])
+    this.router.navigate(['/products/item'])
   }
+
   goToEditPage(id: number): void{
-  this.router.navigate(['/product/add'])
+  this.router.navigate(['/products/item/'+id])
   }
 
     /* gets the type param from the url (route param) to set what products will be showed */
