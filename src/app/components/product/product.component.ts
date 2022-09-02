@@ -14,7 +14,7 @@ import {Router} from "@angular/router";
 export class ProductComponent implements OnInit {
   product: any;
   products: any;
-  productId = '';
+  productId: any;
 
   constructor(
     private productService: ProductService,
@@ -36,12 +36,14 @@ export class ProductComponent implements OnInit {
     return this.products;
   }
 
-  goToPage(){
-    let url="http://localhost:4200/product/add"
+  goToPage(): void{
     console.log("navigate...")
-    this.router.navigateByUrl(url)
-
+    this.router.navigate(['/product/add'])
   }
+  goToEditPage(id: number): void{
+  this.router.navigate(['/product/add'])
+  }
+
     /* gets the type param from the url (route param) to set what products will be showed */
     // this.route.params.subscribe((params) => {
     //   this.productId = params['id'];
@@ -50,15 +52,16 @@ export class ProductComponent implements OnInit {
     // this.productService.getProductFromId(this.productId).subscribe( (product) => {
     //   this.product = product
     // } )
-  }
+
 
   /* adds the selected produtc to the cartServices's list */
-  // addToCart(id: String) {
-  //   this.productService.getProductFromId(id).subscribe((product) => {
-  //     this.cartService.addToCart(product);
-  //   });
-  // }
-  //
-  // splitPrice(price: any) {
-  //   return price / 10;
-  // }
+  addToCart(id: String) {
+    this.productService.getProductFromId(id).subscribe((product) => {
+      this.cartService.addToCart(product);
+    });
+  }
+
+  splitPrice(price: any) {
+    return price / 10;
+  }
+}

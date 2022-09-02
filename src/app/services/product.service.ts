@@ -42,6 +42,10 @@ export class ProductService {
     return this.httpClient.get<Product[]>(this.url);
   }
 
+  createProduct(product: Product): Observable<Product>{
+    return this.httpClient.post<Product>(this.url, product)
+  }
+
   getProductsByCategory(id_category: string):Observable<Product[]>{
     return this.httpClient.get<Product[]>(this.url+"category/"+id_category)
   }
@@ -53,8 +57,8 @@ export class ProductService {
   }
 
   //find an element by its id and returns it
-  getProductFromId(id: any) {
-    return this.httpClient.get<Product>("http://localhost:8000/products/"+id);
+  getProductFromId(id: any): Observable<Product> {
+    return this.httpClient.get<Product>(this.url+id);
 
   }
 

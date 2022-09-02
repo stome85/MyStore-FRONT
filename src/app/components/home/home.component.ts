@@ -4,11 +4,11 @@ import {Component, OnInit, Output} from '@angular/core';
 import {Router} from '@angular/router';
 
 @Component({
-  selector: 'app-principal',
-  templateUrl: './principal.component.html',
-  styleUrls: ['./principal.component.scss'],
+  selector: 'app-home',
+  templateUrl: './home.component.html',
+  styleUrls: ['./home.component.scss'],
 })
-export class PrincipalComponent implements OnInit {
+export class HomeComponent implements OnInit {
   constructor(
     private router: Router,
     private productService: ProductService,

@@ -1,6 +1,6 @@
 <div>
-  <button type="button">
-    <a routerLink="/product/add">New Product</a>
+  <button (click)="goToPage()" type="button" >
+    New Product
   </button>
 </div>
 <section class="container">
@@ -22,59 +22,62 @@
         style="width: 200px; height: 200px"
         alt="..."
       />
-      <!-------------------------- Price ----------------------->
-      <!--      <p class="product-price">-->
-      <!--        {{ i.price.toString() | currency: "BRL" }}-->
-      <!--      </p>-->
-      <!--      <p>ou</p>-->
-      <!--      <p>10 x {{ splitPrice(i.price) | currency: "BRL" }}</p>-->
-      <!--      &lt;!&ndash;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45; Button -&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&ndash;&gt;-->
-      <!--      <p>-->
-      <!--        <button-->
-      <!--          class="btn btn-cart"-->
-      <!--          type="submit"-->
-      <!--          (click)="addToCart(i.id)"-->
-      <!--          (click)="$event.stopPropagation()"-->
-      <!--          data-bs-toggle="modal"-->
-      <!--          data-bs-target="#exampleModal"-->
-      <!--        >-->
-      <!--          <i class="fa fa-shopping-cart"></i> Adicionar ao Carrinho-->
-      <!--        </button>-->
-      <!--      </p>-->
+     <!------------------------ Price --------------------->
+      <p class="product-price">
+        {{ i.price.toString() | currency: "BRL" }}
+      </p>
+      <p>ou</p>
+      <p>10 x {{ splitPrice(i.price) | currency: "BRL" }}</p>
+      <!-------------------------- Button ----------------------->
+      <p>
+        <button class="btn btn-info" (click)="goToEditPage(i.id)">
+          Edit
+        </button>
+<!--        <button-->
+<!--          class="btn btn-cart"-->
+<!--          type="submit"-->
+<!--          (click)="addToCart(i.id)"-->
+<!--          (click)="$event.stopPropagation()"-->
+<!--          data-bs-toggle="modal"-->
+<!--          data-bs-target="#exampleModal"-->
+<!--        >-->
+<!--          <i class="fa fa-shopping-cart"></i> Adicionar ao Carrinho-->
+<!--        </button>-->
+            </p>
     </div>
   </div>
 
-  <!-------------------------- Banner ----------------------->
-  <!--  <div class="row m-0 banner mb-5">-->
-  <!--    <div class="col-md">-->
-  <!--      <span> {{ product.name }} </span>-->
-  <!--    </div>-->
-  <!--  </div>-->
+  <!------------------------ Banner --------------------->
+<!--    <div class="row m-0 banner mb-5">-->
+<!--      <div class="col-md">-->
+<!--        <span> {{ product.name }} </span>-->
+<!--      </div>-->
+<!--    </div>-->
 
-  <!--  <div class="row row-product">-->
-  <!--    <div class="col-lg col-product">-->
-  <!--      <img class="product-image" src="{{ product.image }}" />-->
-  <!--    </div>-->
-  <!--    <div class="col-lg col-product col-product-description">-->
-  <!--      <p class="p-price">{{ product.price | currency: "BRL" }}</p>-->
-  <!--      <p>Em até 10 x {{ splitPrice(product.price) | currency: "BRL" }}</p>-->
-  <!--      <p><button-->
-  <!--        class="btn btn-cart"-->
-  <!--        type="submit"-->
-  <!--        (click)="addToCart(product.id)"-->
-  <!--        data-bs-toggle="modal"-->
-  <!--        data-bs-target="#Modal"-->
-  <!--      >-->
-  <!--        <i class="fa fa-shopping-cart"></i> Adicionar ao Carrinho-->
-  <!--      </button></p>-->
-  <!--      <img class="pix-img" src="assets/pix.png" />-->
-  <!--      <img class="pix-img" src="assets/credit.png" />-->
-  <!--      <img class="pix-img" src="assets/boleto.png" />-->
-  <!--      <div class="line"></div>-->
-  <!--      <p class="p-description">{{ product.description }}</p>-->
-  <!--      <div class="line"></div>-->
-  <!--    </div>-->
-  <!--  </div>-->
+<!--    <div class="row row-product">-->
+<!--      <div class="col-lg col-product">-->
+<!--        <img class="product-image" src="{{ product.image }}" />-->
+<!--      </div>-->
+<!--      <div class="col-lg col-product col-product-description">-->
+<!--        <p class="p-price">{{ product.price | currency: "BRL" }}</p>-->
+<!--        <p>Em até 10 x {{ splitPrice(product.price) | currency: "BRL" }}</p>-->
+<!--        <p><button-->
+<!--          class="btn btn-cart"-->
+<!--          type="submit"-->
+<!--          (click)="addToCart(product.id)"-->
+<!--          data-bs-toggle="modal"-->
+<!--          data-bs-target="#Modal"-->
+<!--        >-->
+<!--          <i class="fa fa-shopping-cart"></i> Adicionar ao Carrinho-->
+<!--        </button></p>-->
+<!--        <img class="pix-img" src="assets/pix.png" />-->
+<!--        <img class="pix-img" src="assets/credit.png" />-->
+<!--        <img class="pix-img" src="assets/boleto.png" />-->
+<!--        <div class="line"></div>-->
+<!--        <p class="p-description">{{ product.description }}</p>-->
+<!--        <div class="line"></div>-->
+<!--      </div>-->
+<!--    </div>-->
 </section>
 
 <!---------------- Modal ----------------->
