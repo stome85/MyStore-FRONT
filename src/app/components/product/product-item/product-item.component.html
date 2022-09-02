@@ -1,0 +1,52 @@
+<div>
+  <form>
+    <div class="form-group">
+      <label for="inputName">Name</label>
+      <input type="text" class="form-control" id="inputName" placeholder="name"
+             [(ngModel)]="product.name" name="name">
+    </div>
+    <div class="form-group">
+      <label for="selectCategory">Category</label>
+      <select class="form-control" id="selectCategory"
+              [(ngModel)]="product.category" name="category">
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+        <option>5</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="inputDescription">Description</label>
+      <textarea class="form-control" id="inputDescription" rows="3"
+                [(ngModel)]="product.description" name="description">
+
+    </textarea>
+    </div>
+    <div class="form-group">
+      <label for="inputPrice">Price</label>
+      <input type="number" class="form-control" id="inputPrice" placeholder="price"
+             [(ngModel)]="product.price" name="price">
+    </div>
+    <div class="form-group">
+      <label for="inputAmout">Amount</label>
+      <input type="number" class="form-control" id="inputAmout" placeholder="amount"
+             [(ngModel)]="product.amount" name="amount">
+    </div>
+    <div class="form-group">
+      <label for="inputImage">Image</label>
+      <input type="text" class="form-control" id="inputImage" placeholder="image"
+             [(ngModel)]="product.image" name="image">
+    </div>
+  </form>
+</div>
+
+<div class = actions>
+  <button (click)="createProduct()">
+    Save
+  </button>
+
+  <button (click)="cancel()">
+    Cancel
+  </button>
+</div>
