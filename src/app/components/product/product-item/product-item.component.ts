@@ -26,30 +26,44 @@ export class ProductItemComponent implements OnInit {
 
   ngOnInit(): void {
     const id = this.route.snapshot.paramMap.get('id')
-    console.log(id)
     if (id) {
       this.productService.getProductFromId(id).subscribe(product => {
         this.product = product
-        console.log(product)
       });
     }
   }
 
   createProduct(): void {
-    this.productService.createProduct(this.product).subscribe(() => {
+    this.productService.create(this.product).subscribe(() => {
       //mensagem: produto criado
       this.router.navigate(['/products'])
     })
   }
 
-  // editProduct(id: number){
-  //   this.productService.getProductFromId(id).subscribe((product)=>{
-  //     this.product = product
-  //   })
-  // }
+  editProduct(id: Number){
+    this.productService.update(id, this.product).subscribe((product)=>{
+      //mensagem: produto atualizado
+      this.router.navigate(['/products'])
+    })
+  }
+
+  deleteProduct(id: Number){
+    this.productService.delete(id).subscribe(()=>{
+      //mensagem: produto apagado
+      this.router.navigate(['/products'])
+    })
+  }
 
   cancel(): void {
     this.router.navigate(['/products'])
+  }
+
+  //Enable or disable CRUD buttons acoording to request
+  configButtons(){
+    const url = this.route.snapshot.url.toString()
+    let x
+    url=="products,item" ? x = true : x = false
+    return x
   }
 
 }

@@ -27,32 +27,45 @@ export class ProductComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.productService.getProducts().subscribe((products => {
-      this.products = products
-    }))
+    let id = this.getRouteId();
+    console.log(id)
+    if (id == null) {
+      this.productService.getProducts().subscribe((products => {
+        this.products = products
+      }))
+    }else{
+      this.productService.getProductsByCategory(id).subscribe((products)=>{
+        this.products = products
+
+      })
+    }
+  }
+
+  getRouteId(){
+    return this.route.snapshot.paramMap.get(('id'))
   }
 
   getProducts() {
     return this.products;
   }
 
-  goToPage(): void{
+  goToPage(): void {
     console.log("navigate...")
     this.router.navigate(['/products/item'])
   }
 
-  goToEditPage(id: number): void{
-  this.router.navigate(['/products/item/'+id])
+  goToEditPage(id: number): void {
+    this.router.navigate(['/products/' + id])
   }
 
-    /* gets the type param from the url (route param) to set what products will be showed */
-    // this.route.params.subscribe((params) => {
-    //   this.productId = params['id'];
-    // });
-    //
-    // this.productService.getProductFromId(this.productId).subscribe( (product) => {
-    //   this.product = product
-    // } )
+  /* gets the type param from the url (route param) to set what products will be showed */
+  // this.route.params.subscribe((params) => {
+  //   this.productId = params['id'];
+  // });
+  //
+  // this.productService.getProductFromId(this.productId).subscribe( (product) => {
+  //   this.product = product
+  // } )
 
 
   /* adds the selected produtc to the cartServices's list */

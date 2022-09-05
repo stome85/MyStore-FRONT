@@ -5,18 +5,22 @@ import {ProductItemComponent} from "./components/product/product-item/product-it
 import {HomeComponent} from './components/home/home.component';
 import {NgModule, Component} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
+import {CategoryComponent} from "./components/category/category.component";
 
 const routes: Routes = [
   {path: '', redirectTo: 'home', pathMatch: 'full'},
   {path: 'home', component: HomeComponent},
   {path: 'products', component: ProductComponent},
-  {path: 'products/item', component:ProductItemComponent},
-  {path: 'products/item/:id', component:ProductItemComponent},
+  {path: 'products/:id', component: ProductItemComponent},
+  {path: 'products/category/:id', component: ProductComponent},
+  {path: 'products/item', component: ProductItemComponent},
+  {path: 'products/item/:id', component: ProductItemComponent},
+  {path: 'categories/:id', component: CategoryComponent},
   {path: 'boards', component: ProductListComponent},
   {path: 'sensors', component: ProductListComponent},
   {path: 'cart', component: CartComponent},
   {path: 'category/:type', component: ProductListComponent},
-  {path: 'products/:id', component: ProductComponent},
+
 
 ];
 

@@ -28,6 +28,14 @@ export class HeaderComponent implements OnInit {
     })
   }
 
+  getCategories(){
+    return this.categoriesList
+  }
+
+  goToPage(id: string){
+    this.router.navigate(['/products/category/'+id])
+  }
+
   openCartPage() {
     this.router.navigateByUrl('/cart');
   }

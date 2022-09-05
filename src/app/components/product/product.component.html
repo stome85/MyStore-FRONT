@@ -1,5 +1,5 @@
 <div>
-  <button (click)="goToPage()" type="button" >
+  <button class="btn btn-info" (click)="goToPage()" type="button" >
     New Product
   </button>
 </div>
@@ -10,7 +10,7 @@
       id="{{ i.id }}"
       class="col-sm col-product"
       *ngFor="let i of getProducts()"
-      routerLink="/product/{{ i.id }}"
+      routerLink="/products/{{ i.id }}"
     >
       <!-------------------------- Name ----------------------->
       <p class="product-name">
@@ -30,7 +30,7 @@
       <p>10 x {{ splitPrice(i.price) | currency: "BRL" }}</p>
       <!-------------------------- Button ----------------------->
       <p>
-        <button class="btn btn-info" (click)="goToEditPage(i.id)">
+        <button class="btn btn-info"  (click)="goToEditPage(i.id)">
           Edit
         </button>
 <!--        <button-->
