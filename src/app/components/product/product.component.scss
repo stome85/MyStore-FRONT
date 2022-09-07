@@ -51,4 +51,12 @@
 .btn {
   //background-color: #253C59;
   font-weight: bold;
+  margin-left: 10px;
+}
+
+.options{
+  padding: 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: end;
 }

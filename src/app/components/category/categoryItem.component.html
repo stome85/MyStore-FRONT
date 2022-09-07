@@ -1,0 +1,28 @@
+<div>
+  <form>
+    <div class="form-group">
+      <label for="inputName">Name</label>
+      <input type="text" class="form-control" id="inputName" placeholder="name"
+             [(ngModel)]="category.name" name="name">
+    </div>
+  </form>
+</div>
+
+<div class=actions>
+  <button class="btn btn-info" (click)="createCategory()">
+    Save
+  </button>
+
+<!--  <button class="btn btn-info" (click)="editProduct(product.id)" [disabled]="configButtons()">-->
+<!--    Update-->
+<!--  </button>-->
+
+<!--  <button class="btn btn-info" (click)="deleteProduct(product.id)" [disabled]="configButtons()">-->
+<!--    Delete-->
+<!--  </button>-->
+
+<!--  <button class="btn btn-info"  (click)="cancel()">-->
+<!--    Cancel-->
+<!--  </button>-->
+
+</div>

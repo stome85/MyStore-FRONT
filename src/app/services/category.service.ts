@@ -14,4 +14,12 @@ export class CategoryService {
   getCategories():Observable<Category[]>{
     return this.httpClient.get<Category[]>(this.url);
   }
+
+  getCategoriesByProductId(id: Number): Observable<Category>{
+    return this.httpClient.get<Category>(this.url+id+"/")
+  }
+
+  create(category: Category): Observable<Category>{
+    return this.httpClient.post<Category>(this.url, category)
+  }
 }

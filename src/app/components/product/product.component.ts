@@ -49,13 +49,19 @@ export class ProductComponent implements OnInit {
     return this.products;
   }
 
-  goToPage(): void {
+
+  newProductPage(): void {
     console.log("navigate...")
     this.router.navigate(['/products/item'])
   }
 
+  newCategoryPage(): void {
+    console.log("navigate...")
+    this.router.navigate(['/listCategories/item'])
+  }
+
   goToEditPage(id: number): void {
-    this.router.navigate(['/products/' + id])
+    this.router.navigate(['/products/'+id])
   }
 
   /* gets the type param from the url (route param) to set what products will be showed */
