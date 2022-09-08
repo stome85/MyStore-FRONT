@@ -13,48 +13,37 @@ export class ProductListComponent implements OnInit {
   constructor(
     private productService: ProductService,
     private router: Router,
-    private cartService: CartService,
     private route: ActivatedRoute
   ) {}
 
-  productList: Product[] = [
-    {
-      id: 0,
-      name: '',
-      price: 0,
-      description: '',
-      category: 0,
-      image: '',
-      amount: 0
-    },
-  ];
-  productType = '';
-  productTypeH1 = '';
+  products: any;
+
 
   ngOnInit(): void {
-    //refreshes the page when navbar menu has been clicked
-    this.router.routeReuseStrategy.shouldReuseRoute = () => false;
 
-    /* gets the type param from the url (route param) to set what products will be showed */
-    this.route.params.subscribe((params) => {
-      this.productType = params['type'];
-    });
-
-    this.productService
-      .getProductsByType(this.productType)
-      .subscribe((products) => {
-        this.productList = products;
-      });
+    let id =  this.route.snapshot.paramMap.get(('id'))
+    if(id) {
+      this.productService.getProductsByCategory(id).subscribe((products) => {
+        this.products = products
+      })
+    }
   }
 
-  /* adds the selected produtc to the cartServices's list */
-  addToCart(id: Number) {
-    this.productService.getProductFromId(id).subscribe((product) => {
-      this.cartService.addToCart(product);
-    });
+  getProducts() {
+    return this.products;
   }
 
-  splitPrice(price: any) {
-    return price / 10;
+  newProductPage(): void {
+    console.log("navigate...")
+    this.router.navigate(['/products/item'])
+  }
+
+  goToEditPage(id: number): void {
+    this.router.navigate(['/products/'+id])
+  }
+
+  newCategoryPage(): void {
+    console.log("navigate...")
+    this.router.navigate(['/listCategories/item'])
   }
 }

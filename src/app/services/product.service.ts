@@ -42,10 +42,16 @@ export class ProductService {
     return this.httpClient.get<Product[]>(this.url);
   }
 
-  createProduct(product: Product): Observable<Product>{
+  create(product: Product): Observable<Product>{
     return this.httpClient.post<Product>(this.url, product)
   }
+  update(id: Number, product: Product): Observable<Product>{
+    return this.httpClient.put<Product>(this.url+id+"/", product)
+  }
 
+  delete(id: Number): Observable<Product>{
+    return this.httpClient.delete<Product>(this.url+id+"/")
+  }
   getProductsByCategory(id_category: string):Observable<Product[]>{
     return this.httpClient.get<Product[]>(this.url+"category/"+id_category)
   }

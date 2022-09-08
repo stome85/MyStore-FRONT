@@ -12,7 +12,7 @@ import { CartComponent } from './components/cart/cart.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ProductItemComponent } from './components/product/product-item/product-item.component';
 import {FormsModule} from "@angular/forms";
-import { CategoryComponent } from './components/category/category.component';
+import { CategoryItemComponent } from './components/category/categoryItem.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +24,7 @@ import { CategoryComponent } from './components/category/category.component';
     CartComponent,
     ProductListComponent,
     ProductItemComponent,
-    CategoryComponent,
+    CategoryItemComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
   providers: [],
