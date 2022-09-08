@@ -19,14 +19,25 @@ export class CategoryItemComponent implements OnInit {
     id: 0,
     name: ''
   }
+  searchName: string = '';
 
   ngOnInit(): void {
   }
 
-  createCategory(){
-    this.categoryService.create(this.category).subscribe(()=>{
+  createCategory() {
+    this.categoryService.create(this.category).subscribe(() => {
       this.router.navigate(['/home'])
     })
+  }
+
+  searchCategory() {
+    this.categoryService.search(this.searchName).subscribe((category => {
+    this.category.name = category[0].name
+    }))
+  }
+
+  cancel(): void {
+    this.router.navigate(['/products'])
   }
 
 }

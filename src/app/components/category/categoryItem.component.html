@@ -1,6 +1,11 @@
 <div>
   <form>
     <div class="form-group">
+      <input type="text" class="form-control" id="searchCategory" placeholder="search"
+             [(ngModel)]="searchName" name="searchName">
+      <button class="btn btn-info" id="search-btn" (click)="searchCategory()">search</button>
+    </div>
+    <div class="form-group">
       <label for="inputName">Name</label>
       <input type="text" class="form-control" id="inputName" placeholder="name"
              [(ngModel)]="category.name" name="name">
@@ -21,8 +26,8 @@
 <!--    Delete-->
 <!--  </button>-->
 
-<!--  <button class="btn btn-info"  (click)="cancel()">-->
-<!--    Cancel-->
-<!--  </button>-->
+  <button class="btn btn-info"  (click)="cancel()">
+    Cancel
+  </button>
 
 </div>

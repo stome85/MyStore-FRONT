@@ -37,15 +37,12 @@ export class ProductItemComponent implements OnInit {
 
   ngOnInit(): void {
     const id = this.route.snapshot.paramMap.get('id')
-    console.log(typeof(id))
     if (id == "item"){
-      console.log("certo")
       this.categoryService.getCategories().subscribe((categories) => {
         this.listCategories = categories
       })
     }
     else {
-      console.log("errado")
       this.productService.getProductFromId(id).subscribe(product => {
         this.product = product
         this.categoryService.getCategoriesByProductId(this.product.category).subscribe(category => {
@@ -55,7 +52,6 @@ export class ProductItemComponent implements OnInit {
     }
 
   }
-
 
   createProduct(): void {
     this.product.category = this.categoryGet
@@ -89,5 +85,10 @@ export class ProductItemComponent implements OnInit {
     url == "products,item" ? x = true : x = false
     return x
   }
-
+  enableCatgoryField(){
+    const url = this.route.snapshot.paramMap.get('id')
+    let x
+    url == "item" ? x = true : x = false
+    return x
+  }
 }
